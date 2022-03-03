@@ -7,6 +7,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { AddOrEditBookComponent } from './add-or-edit-book/add-or-edit-book.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { AddOrEditUserComponent } from './add-or-edit-user/add-or-edit-user.component';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import { AddOrEditBookComponent } from './add-or-edit-book/add-or-edit-book.comp
     AppComponent,
     BooksComponent,
     RegisterUserComponent,
-    AddOrEditBookComponent
+    AddOrEditBookComponent,
+    HomeComponent,
+    UsersComponent,
+    AddOrEditUserComponent
   ],
 
   imports: [

@@ -67,7 +67,7 @@ export class AddOrEditBookComponent implements OnInit {
       this.bookService.UpdateBook(this.book).subscribe(res => {
         if (res.status == 200) {
           alert(`Book is updated.`)
-          this.router.navigateByUrl('')
+          this.router.navigateByUrl('books')
         }
       })
     }
@@ -78,7 +78,7 @@ export class AddOrEditBookComponent implements OnInit {
         this.bookService.AddBook(this.book).subscribe(res => {
           if (res.status == 200) {
             alert(`Book is Successfully added.`)
-            this.router.navigateByUrl('')
+            this.router.navigateByUrl('books')
           }
         })
       } else {

@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="row pt-4 pb-4">
+        <h2 class="top_SP">
+            <span>Our Users</span>
+            <button class="btn btn-primary" [routerLink]="['/AddOrEditUser']">Add User</button>
+        </h2>
+    </div>
+
+
+    <div class="table-responsive">
+
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Salutation</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Date Of Birth</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th colspan="2" style="text-align: center;">Action</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let item of users let i=index">
+                    <th>{{i+1}}</th>
+                    <td>{{item.salutation}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.dob}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.phone}}</td>
+                    <td><button class="btn btn-secondary btn_SP" [routerLink]="['/AddOrEditUser',item.userId]">Edit</button></td>
+                    <td><button class="btn btn-danger btn_SP" (click)="DeleteUser(item.userId)">Delete</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
