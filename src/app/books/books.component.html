@@ -1,0 +1,44 @@
+<div class="container">
+
+    <div class="row pt-4 pb-4">
+        <h2 class="top_SP">
+            <span>Our Courses</span>
+            <button class="btn btn-primary" [routerLink]="['/AddOrEditBook']">Add Book</button>
+        </h2>
+    </div>
+
+
+    <div class="table-responsive">
+
+        <table class="table align-middle">
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Total Quantity</th>
+                    <th>Available Quantity</th>
+                    <th>Issued Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let item of Books let i=index">
+                    <th>{{i+1}}</th>
+                    <td>{{item.title}}</td>
+                    <td>{{item.author}}</td>
+                    <td>{{item.totalQuantity}}</td>
+                    <td>{{item.availableQuantity}}</td>
+                    <td>{{item.issuedQuantity}}</td>
+                    <td>{{item.price}}</td>
+                    <td><button class="btn btn-secondary btn_SP" [routerLink]="['/AddOrEditBook',item.bookId]">Edit</button></td>
+                    <td><button class="btn btn-danger btn_SP" (click)="DeleteBook(item.bookId)">Delete</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

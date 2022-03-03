@@ -1,0 +1,93 @@
+<h2 class="top_SP pt-4 pb-4" *ngIf="id == undefined">
+    <span>Add New Course</span>
+    <button class="btn btn-primary"[routerLink]="['']">Home</button>
+</h2>
+<h2 class="pt-4 pb-4 top_SP" *ngIf="id !== undefined">
+    <span>Update Course</span>
+    <button class="btn btn-primary"[routerLink]="['']">Home</button>
+</h2>
+
+<hr>
+<div class="col-sm-6 pt-4 pb-4">
+    <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm">
+
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" formControlName="title">
+            <div class="text-danger"
+                *ngIf="userForm.controls['title'].errors && (form.submitted || userForm.controls['title'].touched)">
+                <span [hidden]="!userForm.controls['title'].errors['required']"> Enter Course title </span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Author</label>
+            <input type="text" name="author" class="form-control" formControlName="author">
+            <div class="text-danger"
+                *ngIf="userForm.controls['author'].errors && (form.submitted || userForm.controls['author'].touched)">
+                <span [hidden]="!userForm.controls['author'].errors['required']"> Enter Book author </span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Total Quantity</label>
+            <input type="number" name="totalQuantity" class="form-control" formControlName="totalQuantity">
+            <div class="text-danger"
+                *ngIf="userForm.controls['totalQuantity'].errors && (form.submitted || userForm.controls['totalQuantity'].touched)">
+                <span [hidden]="!userForm.controls['totalQuantity'].errors['required']"> Enter Total Quantity </span>
+
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Available Quantity</label>
+            <input type="number" name="availableQuantity" class="form-control" formControlName="availableQuantity">
+            <div class="text-danger"
+                *ngIf="userForm.controls['availableQuantity'].errors && (form.submitted || userForm.controls['availableQuantity'].touched)">
+                <span [hidden]="!userForm.controls['availableQuantity'].errors['required']"> Enter Available Quantity </span>
+
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Issued Quantity</label>
+            <input type="number" name="issuedQuantity" class="form-control" formControlName="issuedQuantity">
+            <div class="text-danger"
+                *ngIf="userForm.controls['issuedQuantity'].errors && (form.submitted || userForm.controls['issuedQuantity'].touched)">
+                <span [hidden]="!userForm.controls['issuedQuantity'].errors['required']"> Enter Issued Quantity </span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" name="price" class="form-control" formControlName="price">
+            <div class="text-danger"
+                *ngIf="userForm.controls['price'].errors && (form.submitted || userForm.controls['price'].touched)">
+                <span [hidden]="!userForm.controls['price'].errors['required']"> Enter Price</span>
+            </div>
+        </div>
+
+        
+
+        <div class="mb-3">
+            <input type="submit" value="Add Book" *ngIf="id == undefined" class="btn btn-primary">
+            <input type="submit" value="Update Book" *ngIf="id !== undefined" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+
+<!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div> -->
