@@ -1,22 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand h1 mb-0" href="#">Library Project</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand h1 mb-0">Library Project</a>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['']">Home</a>
+          <a class="nav-link " aria-current="page" [routerLink]="['']">Home</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['books']">Books</a>
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['Books']">Books</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['users']">Users</a>
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['Users']">Users</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['Submit']">Submit Books Here</a>
         </li>
       </ul>
+    </div>
+
+    <div class="d-flex">
+      <button class="btn btn-primary" [routerLink]="['/AddOrEditUser']">Register New User</button>
     </div>
   </div>
 </nav>
@@ -24,6 +28,5 @@
 
 
 <div class="container">
-
   <router-outlet></router-outlet>
 </div>

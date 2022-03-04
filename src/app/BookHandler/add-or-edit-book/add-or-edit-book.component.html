@@ -1,9 +1,14 @@
 <h2 class="top_SP pt-4" *ngIf="id == undefined">
     <span>Add New Book</span>
+    <button class="btn btn-primary" [routerLink]="['/Books']">Go To Books</button>
+
 </h2>
 <h2 class="pt-4 top_SP" *ngIf="id !== undefined">
     <span>Update Book</span>
+    <button class="btn btn-primary" [routerLink]="['/Books']">Go To Books</button>
+
 </h2>
+
 <hr>
 <div class="col-sm-6 pt-4 pb-4">
     <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm">

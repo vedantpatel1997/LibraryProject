@@ -31,7 +31,7 @@
                     <td>{{item.salutation}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.age}}</td>
-                    <td>{{item.dob}}</td>
+                    <td>{{item.dob|date:'dd/LL/yyyy'}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.phone}}</td>
                     <td><button class="btn btn-secondary btn_SP" [routerLink]="['/AddOrEditUser',item.userId]">Edit</button></td>

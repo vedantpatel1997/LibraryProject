@@ -10,10 +10,16 @@
 
         <div class="mb-3">
             <label class="form-label">Salutation</label>
-            <input type="text" name="salutation" class="form-control" formControlName="salutation">
+            <!-- <input type="text" name="salutation" class="form-control" formControlName="salutation"> -->
+            <select class="form-control" name="salutation" formControlName="salutation">
+                <option [value]='null'>-- Select Salutation --</option>
+                <option>Mr</option>
+                <option>Ms</option>
+                <option>Mrs</option>
+            </select>
             <div class="text-danger"
                 *ngIf="userForm.controls['salutation'].errors && (form.submitted || userForm.controls['salutation'].touched)">
-                <span [hidden]="!userForm.controls['salutation'].errors['required']"> Enter Course salutation </span>
+                <span [hidden]="!userForm.controls['salutation'].errors['required']"> Select salutation </span>
             </div>
         </div>
 
@@ -23,6 +29,8 @@
             <div class="text-danger"
                 *ngIf="userForm.controls['name'].errors && (form.submitted || userForm.controls['name'].touched)">
                 <span [hidden]="!userForm.controls['name'].errors['required']"> Enter Book Name </span>
+                <span [hidden]="!userForm.controls['name'].errors['minlength']"> Min Length is 5 </span>
+                <span [hidden]="!userForm.controls['name'].errors['maxlength']"> Max Length is 50 </span>
             </div>
         </div>
 
@@ -32,51 +40,57 @@
             <div class="text-danger"
                 *ngIf="userForm.controls['age'].errors && (form.submitted || userForm.controls['age'].touched)">
                 <span [hidden]="!userForm.controls['age'].errors['required']"> Enter age </span>
+                <span [hidden]="!userForm.controls['age'].errors['min']"> User must greater than 18 </span>
+                <span [hidden]="!userForm.controls['age'].errors['max']"> User must less than 120 </span>
 
             </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Date Of Birth</label>
-            <input type="text" name="dob" class="form-control" formControlName="dob">
+            <input type="date" name="dob" class="form-control" formControlName="dob">
             <div class="text-danger"
                 *ngIf="userForm.controls['dob'].errors && (form.submitted || userForm.controls['dob'].touched)">
                 <span [hidden]="!userForm.controls['dob'].errors['required']"> Enter Date Of Birth </span>
-
             </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Gender</label>
-            <input type="text" name="gender" class="form-control" formControlName="gender">
+            <!-- <input type="text" name="gender" class="form-control" formControlName="gender"> -->
+            <select class="form-control" name="gender" formControlName="gender">
+                <option [value]='null'>-- Select Gender --</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
             <div class="text-danger"
                 *ngIf="userForm.controls['gender'].errors && (form.submitted || userForm.controls['gender'].touched)">
-                <span [hidden]="!userForm.controls['gender'].errors['required']"> Enter Gender </span>
+                <span [hidden]="!userForm.controls['gender'].errors['required']">Please Select Gender R </span>
+                <span [hidden]="!userForm.controls['gender'].errors['nullvalidator']"> Please Select Gender </span>
             </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" formControlName="email">
+            <input type="text" name="email" class="form-control" formControlName="email">
             <div class="text-danger"
                 *ngIf="userForm.controls['email'].errors && (form.submitted || userForm.controls['email'].touched)">
-                <span [hidden]="!userForm.controls['email'].errors['required']"> Enter Email</span>
+                <span [hidden]="!userForm.controls['email'].errors['email']"> Enter valid Email</span>
             </div>
         </div>
+
         <div class="mb-3">
             <label class="form-label">Phone</label>
             <input type="text" name="phone" class="form-control" formControlName="phone">
             <div class="text-danger"
                 *ngIf="userForm.controls['phone'].errors && (form.submitted || userForm.controls['phone'].touched)">
-                <span [hidden]="!userForm.controls['phone'].errors['required']"> Enter Phone</span>
+                <span [hidden]="!userForm.controls['phone'].errors['minlength']"> Phone no should have min 12 digit</span>
             </div>
         </div>
 
-        
-
         <div class="mb-3">
-            <input type="submit" value="Add Book" *ngIf="id == undefined" class="btn btn-primary">
-            <input type="submit" value="Update Book" *ngIf="id !== undefined" class="btn btn-primary">
+            <input type="submit" value="Add User" *ngIf="id == undefined" class="btn btn-primary">
+            <input type="submit" value="Update User" *ngIf="id !== undefined" class="btn btn-primary">
         </div>
     </form>
 </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Book } from '../Models/Book';
-import { BookService } from '../Services/book.service';
+import { Book } from '../../Models/Book';
+import { BookService } from '../../Services/book.service';
 
 @Component({
   selector: 'app-add-or-edit-book',
@@ -67,7 +67,7 @@ export class AddOrEditBookComponent implements OnInit {
       this.bookService.UpdateBook(this.book).subscribe(res => {
         if (res.status == 200) {
           alert(`Book is updated.`)
-          this.router.navigateByUrl('books')
+          this.router.navigateByUrl('Books')
         }
       })
     }
@@ -78,7 +78,7 @@ export class AddOrEditBookComponent implements OnInit {
         this.bookService.AddBook(this.book).subscribe(res => {
           if (res.status == 200) {
             alert(`Book is Successfully added.`)
-            this.router.navigateByUrl('books')
+            this.router.navigateByUrl('Books')
           }
         })
       } else {

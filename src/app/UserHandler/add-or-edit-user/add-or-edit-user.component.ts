@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../Models/user';
-import { UserService } from '../Services/user.service';
+import { User } from 'src/app/Models/User';
+
+
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'add-or-edit-user',
@@ -23,12 +25,12 @@ export class AddOrEditUserComponent implements OnInit {
 
     this.userForm = fb.group({
       salutation: [null, [Validators.required]],
-      name: [null, [Validators.required]],
-      age: [null, [Validators.required]],
+      name: [null, [Validators.required,Validators.minLength(5),Validators.maxLength(50)]],
+      age: [null, [Validators.required,Validators.min(18),Validators.max(120)]],
       dob: [null, [Validators.required]],
-      gender: [null, [Validators.required]],
-      email: [null, [Validators.required]],
-      phone: [null, [Validators.required]]
+      gender: [null, [Validators.required, Validators.nullValidator]],
+      email: [null, [Validators.email]],
+      phone: [null, [Validators.minLength(12)]]
     })
   }
 
@@ -58,7 +60,7 @@ export class AddOrEditUserComponent implements OnInit {
       this.userService.UpdateUser(this.user).subscribe(res => {
         if (res.status == 200) {
           alert(`User is updated.`)
-          this.router.navigateByUrl('users')
+          this.router.navigateByUrl('Users')
         }
       })
     }
@@ -69,7 +71,7 @@ export class AddOrEditUserComponent implements OnInit {
         this.userService.AddUser(this.user).subscribe(res => {
           if (res.status == 200) {
             alert(`User is Successfully added.`)
-            this.router.navigateByUrl('users')
+            this.router.navigateByUrl('Users')
           }
         })
       } else {

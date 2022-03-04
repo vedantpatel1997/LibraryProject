@@ -2,8 +2,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Book } from '../Models/Book';
-import { User } from '../Models/user';
+import { User } from '../Models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -37,4 +36,5 @@ export class UserService {
     return this.httpClient.delete<HttpResponse<any>>(environment.apiAddress + "User/DeleteUser/" + id,
       { observe: 'response' });
   }
+  
 }
