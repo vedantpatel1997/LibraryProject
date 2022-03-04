@@ -61,6 +61,7 @@ export class SubmitComponent implements OnInit {
         alert(`Book is submitted.`)
         this.issueService.GetBooksByUserId(this.submitBook.userId).subscribe(res => {
           this.books = res;
+          console.log(this.books.length)
         })
       }
     },err => {               

@@ -25,8 +25,7 @@ export class IssueBookService {
   }
 
   SubmitBook(submitBook: Submit): Observable<HttpResponse<any>> {
-    return this.httpClient.delete<HttpResponse<any>>(environment.apiAddress + "Book/SubmitBook/" + submitBook,
-      { observe: 'response' });
+    return this.httpClient.post<HttpResponse<any>>(environment.apiAddress + "Book/SubmitBook", submitBook, { headers: this.headers, observe: 'response' })
   }
 
 

@@ -71,6 +71,8 @@ export class IssueComponent implements OnInit {
           alert(`Book Issued to ${this.userForm.value.salutation} ${this.userForm.value.name}.`)
           this.router.navigateByUrl('Books')
         }
+      }, err => {
+        alert(err.error)
       })
     }
 
