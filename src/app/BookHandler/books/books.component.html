@@ -7,8 +7,86 @@
         </h2>
     </div>
 
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="filterData($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
 
     <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" matSort class="table align-middle">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+                <td mat-cell *matCellDef="let element"> {{dataSource.filteredData.indexOf(element)+1}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="author">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Author </th>
+                <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalQuantity">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.totalQuantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="availableQuantity">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Available Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.availableQuantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="issuedQuantity">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Issued Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.issuedQuantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="issue">
+                <th mat-header-cell *matHeaderCellDef> Issue </th>
+                <td mat-cell *matCellDef="let row let element">
+                    <button class="btn btn-outline-primary"
+                        [routerLink]="['/Issue',element.bookId]">Issue</button>&nbsp;
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let row let element">
+                    <button class="btn btn-outline-secondary"
+                        [routerLink]="['/AddOrEditBook',element.bookId]">Edit</button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let row let element">
+                    <button class="btn btn-outline-danger" (click)="DeleteBook(element.bookId)">Delete</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- <mat-paginator #paginator [pageSize]="5">
+    </mat-paginator> -->
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+        aria-label="Select page of periodic elements">
+    </mat-paginator>
+
+    <!-- <div class="table-responsive">
 
         <table class="table align-middle">
 
@@ -34,13 +112,13 @@
                     <td>{{item.availableQuantity}}</td>
                     <td>{{item.issuedQuantity}}</td>
                     <td>{{item.price}}</td>
-                    <td><button class="btn btn-primary btn_SP" [routerLink]="['/Issue',item.bookId]">Issue</button></td>
-                    <td><button class="btn btn-secondary btn_SP" [routerLink]="['/AddOrEditBook',item.bookId]">Edit</button></td>
-                    <td><button class="btn btn-danger btn_SP" (click)="DeleteBook(item.bookId)">Delete</button></td>
+                    <td><button class="btn btn-outline-primary btn_SP" [routerLink]="['/Issue',item.bookId]">Issue</button></td>
+                    <td><button class="btn btn-outline-secondary btn_SP" [routerLink]="['/AddOrEditBook',item.bookId]">Edit</button></td>
+                    <td><button class="btn btn-outline-danger btn_SP" (click)="DeleteBook(item.bookId)">Delete</button></td>
                 </tr>
             </tbody>
 
         </table>
 
-    </div>
+    </div> -->
 </div>

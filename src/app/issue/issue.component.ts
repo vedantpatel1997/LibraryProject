@@ -68,7 +68,9 @@ export class IssueComponent implements OnInit {
 
       this.issueService.IssueBook(this.issueBook).subscribe(res => {
         if (res.status == 200) {
-          alert(`Book Issued to ${this.userForm.value.salutation} ${this.userForm.value.name}.`)
+          let user = this.users.find((ele: { userId: any; }) => ele.userId == this.issueBook.userId);
+
+          alert(`Book Issued to ${user.salutation} ${user.name}.`)
           this.router.navigateByUrl('Books')
         }
       }, err => {

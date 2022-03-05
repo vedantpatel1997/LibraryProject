@@ -13,6 +13,13 @@ import { AddOrEditUserComponent } from './UserHandler/add-or-edit-user/add-or-ed
 import { IssueComponent } from './issue/issue.component';
 import { UsersComponent } from './UserHandler/users/users.component';
 import { SubmitComponent } from './submit/submit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -25,14 +32,21 @@ import { SubmitComponent } from './submit/submit.component';
     UsersComponent,
     AddOrEditUserComponent,
     IssueComponent,
-    SubmitComponent
+    SubmitComponent,
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSliderModule, 
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

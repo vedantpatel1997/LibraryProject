@@ -1,48 +1,55 @@
-<div class="col-sm-6 pt-4 pb-4">
+<div class="container">
+    <h2 class="pt-4 top_SP">
+        <span>Submit Book</span>
+        <!-- <button class="btn btn-primary" [routerLink]="['/Books']">Go To Books</button> -->
+    </h2>
+    <hr>
+    <div class="col-sm-6 pt-4 pb-4">
 
-    <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm">
-        <div class="mb-3">
-            <label class="form-label">Select User</label>
-            <select class="form-control" name="user" formControlName="user">
-                <option [value]='null'>-- Select User --</option>
-                <option *ngFor="let item of users" [value]="item.userId">
-                    {{item.salutation}}. {{item.name}}
-                </option>
-            </select>
-            <div class="text-danger"
-                *ngIf="userForm.controls['user'].errors && (form.submitted || userForm.controls['user'].touched)">
-                <span [hidden]="!userForm.controls['user'].errors['required']"> Please select User </span>
+        <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm">
+            <div class="mb-3">
+                <label class="form-label">Select User</label>
+                <select class="form-control" name="user" formControlName="user">
+                    <option [value]='null'>-- Select User --</option>
+                    <option *ngFor="let item of users" [value]="item.userId">
+                        {{item.salutation}}. {{item.name}}
+                    </option>
+                </select>
+                <div class="text-danger"
+                    *ngIf="userForm.controls['user'].errors && (form.submitted || userForm.controls['user'].touched)">
+                    <span [hidden]="!userForm.controls['user'].errors['required']"> Please select User </span>
+                </div>
             </div>
+
+            <div class="mb-3">
+                <!-- <input type="submit" value="Add Course" *ngIf="id == undefined" class="btn btn-primary"> -->
+                <input type="submit" value="Get Details" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-8 pt-4 pb-4" *ngIf="books!==undefined">
+        <h1 *ngIf="books.length == 0">There is no book to submit.</h1>
+        <div class="table-responsive" *ngIf="books.length > 0">
+            <table class="table align-middle">
+                <thead>
+                    <tr style="vertical-align: middle;">
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let item of books let i=index" style="vertical-align: middle;">
+                        <th>{{i+1}}</th>
+                        <td>{{item.title}}</td>
+                        <td>{{item.author}}</td>
+                        <td><button class="btn btn-danger btn_SP" (click)="SubmitBook(item.bookId)">Submit Book</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div class="mb-3">
-            <!-- <input type="submit" value="Add Course" *ngIf="id == undefined" class="btn btn-primary"> -->
-            <input type="submit" value="Get Details" class="btn btn-primary">
-        </div>
-    </form>
-</div>
-<div class="col-sm-8 pt-4 pb-4"*ngIf="books!==undefined">
-
-    <div class="table-responsive" >
-        <table class="table align-middle">
-            <thead>
-                <tr style="vertical-align: middle;">
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr *ngFor="let item of books let i=index" style="vertical-align: middle;">
-                    <th>{{i+1}}</th>
-                    <td>{{item.title}}</td>
-                    <td>{{item.author}}</td>
-                    <td><button class="btn btn-danger btn_SP" (click)="SubmitBook(item.bookId)">Submit Book</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </div>
