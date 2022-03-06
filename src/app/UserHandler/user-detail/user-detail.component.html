@@ -1,0 +1,35 @@
+<h2 class="top_SP pt-4" *ngIf="user!==undefined">
+    <span>{{user.salutation}}. {{user.name}}</span>
+    <div>
+        <button class="btn btn-secondary btn_SP" [routerLink]="['/AddOrEditUser',user.userId]">Edit</button>&nbsp;
+        <button class="btn btn-danger btn_SP" (click)="DeleteUser(user.userId)">Delete</button>
+    </div>
+</h2>
+<hr>
+<!-- <h2>Issued Books :</h2> -->
+<div class="col-sm-8 pt-4 pb-4" *ngIf="books!==undefined">
+    <h1 *ngIf="books.length == 0">There is no book to submit.</h1>
+    <div class="table-responsive " *ngIf="books.length > 0">
+        <table class="table align-middle- caption-top">
+            <caption>Issued Books</caption>
+            <thead>
+                <tr style="vertical-align: middle;">
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let item of books let i=index" style="vertical-align: middle;">
+                    <th>{{i+1}}</th>
+                    <td>{{item.title}}</td>
+                    <td>{{item.author}}</td>
+                    <td><button class="btn btn-danger btn_SP" (click)="SubmitBook(item.bookId)">Submit Book</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

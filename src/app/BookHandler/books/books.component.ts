@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Book } from '../../Models/Book';
 import { BookService } from '../../Services/book.service';
 
@@ -11,18 +12,18 @@ import { BookService } from '../../Services/book.service';
 })
 export class BooksComponent implements OnInit {
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService, private router: Router) {
   }
   Books: Book[] | any;
 
   /////////////////////////////////////////
   // Angular Data Table
 
-  displayedColumns: string[] = ['id', 'title', 'author', 'totalQuantity', 'availableQuantity', 'issuedQuantity', 'price', 'issue', 'edit', 'delete'];
+  displayedColumns: string[] = ['id', 'title', 'author', 'totalQuantity', 'availableQuantity', 'issuedQuantity', 'price'];
   dataSource!: MatTableDataSource<any>;
   @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) matsort!: MatSort;
-  
+
   ngOnInit(): void {
     this.bookService.GetBooks().subscribe(res => {
       this.Books = res
@@ -32,12 +33,15 @@ export class BooksComponent implements OnInit {
     })
   }
 
-  DeleteBook(id: number) {
+  DeleteBook(id: number, title: string) {
+
     this.bookService.DeleteBook(id).subscribe(res => {
       if (res.status == 200) {
-        alert(`Course is deleted.`)
+        alert(`Book is deleted.`)
         this.bookService.GetBooks().subscribe(res => {
           this.Books = res
+          this.router.navigateByUrl('Books')
+
         })
       }
     })
@@ -45,6 +49,10 @@ export class BooksComponent implements OnInit {
 
   filterData($event: any) {
     this.dataSource.filter = $event.target.value;
+  }
+
+  check() {
+    console.log(`click on more details`)
   }
 
 }

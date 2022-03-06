@@ -9,8 +9,8 @@
         <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm">
             <div class="mb-3">
                 <label class="form-label">Select User</label>
-                <select class="form-control" name="user" formControlName="user">
-                    <option [value]='null'>-- Select User --</option>
+                <select class="form-control" required name="user" formControlName="user">
+                    <option  [ngValue]='null'>-- Select User --</option>
                     <option *ngFor="let item of users" [value]="item.userId">
                         {{item.salutation}}. {{item.name}}
                     </option>

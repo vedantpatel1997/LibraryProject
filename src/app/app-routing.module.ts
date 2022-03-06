@@ -8,16 +8,20 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { UsersComponent } from './UserHandler/users/users.component';
 import { IssueComponent } from './issue/issue.component';
 import { SubmitComponent } from './submit/submit.component';
+import { BookDetailComponent } from './BookHandler/book-detail/book-detail.component';
+import { UserDetailComponent } from './UserHandler/user-detail/user-detail.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'Books', component: BooksComponent },
   { path: 'AddOrEditBook/:id', component: AddOrEditBookComponent },
+  { path: 'BookDetail/:id', component: BookDetailComponent },
   { path: 'AddOrEditBook', component: AddOrEditBookComponent },
   { path: 'Users', component: UsersComponent },
   { path: 'AddOrEditUser/:id', component: AddOrEditUserComponent },
   { path: 'AddOrEditUser', component: AddOrEditUserComponent },
+  { path: 'UserDetail/:id', component: UserDetailComponent },
   { path: 'Issue/:id', component: IssueComponent },
   { path: 'Register', component: RegisterUserComponent },
   { path: 'Submit', component: SubmitComponent },

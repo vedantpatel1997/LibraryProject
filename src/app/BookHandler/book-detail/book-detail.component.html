@@ -1,0 +1,20 @@
+<!-- <h2 class="top_SP pt-4">
+    <span>Book Details</span>
+</h2>
+<hr> -->
+<div class="top_SP pt-4">
+    <div class="card " style="width: 50rem;" *ngIf="book!=undefined">
+        <div class="card-body">
+            <h2>{{book.title}}</h2>
+            <h3 class="card-title">Auther: {{book.author}}</h3>
+            <br>
+            <br>
+            <p *ngIf="book.issuedQuantity==book.totalQuantity">Book is not available right now.</p>
+            
+            <button class="btn btn-primary" aria-disabled="true" [disabled]="book.issuedQuantity==book.totalQuantity" [routerLink]="['/Issue',book.bookId]">Issue</button>&nbsp;
+            <button class="btn btn-secondary" [routerLink]="['/AddOrEditBook',book.bookId]">Edit</button>&nbsp;
+            <button class="btn btn-danger" (click)="DeleteBook(book.bookId,book.title)">Delete</button>
+
+        </div>
+    </div>
+</div>

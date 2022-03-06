@@ -20,6 +20,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { BookDetailComponent } from './BookHandler/book-detail/book-detail.component';
+import { UserDetailComponent } from './UserHandler/user-detail/user-detail.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import {MatInputModule} from '@angular/material/input';
     AddOrEditUserComponent,
     IssueComponent,
     SubmitComponent,
+    BookDetailComponent,
+    UserDetailComponent,
   ],
 
   imports: [

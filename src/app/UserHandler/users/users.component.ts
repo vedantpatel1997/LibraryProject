@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/Models/User';
 import { UserService } from 'src/app/Services/user.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -12,13 +15,22 @@ import { UserService } from 'src/app/Services/user.service';
 export class UsersComponent implements OnInit {
 
   users: User[] | any;
+  
 
   constructor(private userService: UserService) {
   }
 
+  displayedColumns: string[] = ['id', 'name', 'age', 'dob', 'email', 'phone', ];
+  dataSource!: MatTableDataSource<any>;
+  @ViewChild('paginator') paginator!: MatPaginator;
+  @ViewChild(MatSort) matsort!: MatSort;
+
   ngOnInit(): void {
     this.userService.GetUsers().subscribe(res => {
       this.users = res
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.matsort;
     })
   }
 
@@ -31,5 +43,9 @@ export class UsersComponent implements OnInit {
         })
       }
     })
+  }
+
+  filterData($event: any) {
+    this.dataSource.filter = $event.target.value;
   }
 }
