@@ -10,10 +10,10 @@
 </h2>
 
 <hr>
-<div class="col-sm-6 pt-4 pb-4">
-    <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm">
+<div class="col-sm-8  pt-4 pb-4">
+    <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm" class="row g-3">
 
-        <div class="mb-3">
+        <div class="col-md-12">
             <label class="form-label">Title</label>
             <input type="text" name="title" class="form-control" formControlName="title">
             <div class="text-danger"
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-8">
             <label class="form-label">Author</label>
             <input type="text" name="author" class="form-control" formControlName="author">
             <div class="text-danger"
@@ -31,7 +31,16 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-4">
+            <label class="form-label">Price</label>
+            <input type="number" name="price" class="form-control" formControlName="price">
+            <div class="text-danger"
+                *ngIf="userForm.controls['price'].errors && (form.submitted || userForm.controls['price'].touched)">
+                <span [hidden]="!userForm.controls['price'].errors['required']"> Enter Price</span>
+            </div>
+        </div>
+
+        <div class="col-md-4">
             <label class="form-label">Total Quantity</label>
             <input type="number" name="totalQuantity" class="form-control" formControlName="totalQuantity">
             <div class="text-danger"
@@ -41,7 +50,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-4">
             <label class="form-label">Available Quantity</label>
             <input type="number" name="availableQuantity" class="form-control" formControlName="availableQuantity">
             <div class="text-danger"
@@ -51,7 +60,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-4">
             <label class="form-label">Issued Quantity</label>
             <input type="number" name="issuedQuantity" class="form-control" formControlName="issuedQuantity">
             <div class="text-danger"
@@ -60,14 +69,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Price</label>
-            <input type="number" name="price" class="form-control" formControlName="price">
-            <div class="text-danger"
-                *ngIf="userForm.controls['price'].errors && (form.submitted || userForm.controls['price'].touched)">
-                <span [hidden]="!userForm.controls['price'].errors['required']"> Enter Price</span>
-            </div>
-        </div>
+        
 
         
 

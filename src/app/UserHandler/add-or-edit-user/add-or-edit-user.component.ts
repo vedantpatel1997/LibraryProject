@@ -28,7 +28,7 @@ export class AddOrEditUserComponent implements OnInit {
       name: [null, [Validators.required,Validators.minLength(5),Validators.maxLength(50)]],
       age: [null, [Validators.required,Validators.min(18),Validators.max(120)]],
       dob: [null, [Validators.required]],
-      gender: [null, [Validators.required, Validators.nullValidator]],
+      gender: [null, [Validators.required]],
       email: [null, [Validators.email]],
       phone: [null, [Validators.minLength(12)]]
     })

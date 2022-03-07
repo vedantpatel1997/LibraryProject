@@ -15,7 +15,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class UsersComponent implements OnInit {
 
   users: User[] | any;
-  
+  today: any = new Date();
 
   constructor(private userService: UserService) {
   }

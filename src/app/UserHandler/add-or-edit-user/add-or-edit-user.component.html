@@ -5,10 +5,9 @@
     <span>Update User</span>
 </h2>
 <hr>
-<div class="col-sm-6 pt-4 pb-4">
-    <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm">
-
-        <div class="mb-3">
+<div class="col-sm-8 pt-4 pb-4">
+    <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm" class="row g-3">
+        <div class="col-md-4">
             <label class="form-label">Salutation</label>
             <!-- <input type="text" name="salutation" class="form-control" formControlName="salutation"> -->
             <select class="form-control" name="salutation" formControlName="salutation">
@@ -23,7 +22,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-8">
             <label class="form-label">Name</label>
             <input type="text" name="name" class="form-control" formControlName="name">
             <div class="text-danger"
@@ -34,7 +33,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-6">
             <label class="form-label">Age</label>
             <input type="number" name="age" class="form-control" formControlName="age">
             <div class="text-danger"
@@ -46,7 +45,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-6">
             <label class="form-label">Date Of Birth</label>
             <input type="date" name="dob" class="form-control" formControlName="dob">
             <div class="text-danger"
@@ -55,7 +54,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-4">
             <label class="form-label">Gender</label>
             <!-- <input type="text" name="gender" class="form-control" formControlName="gender"> -->
             <select class="form-control" name="gender" formControlName="gender">
@@ -69,6 +68,15 @@
             </div>
         </div>
 
+        <div class="col-md-8">
+            <label class="form-label">Phone</label>
+            <input type="text" name="phone" class="form-control" formControlName="phone">
+            <div class="text-danger"
+                *ngIf="userForm.controls['phone'].errors && (form.submitted || userForm.controls['phone'].touched)">
+                <span [hidden]="!userForm.controls['phone'].errors['minlength']"> Phone No must have 12 digit</span>
+            </div>
+        </div>
+        
         <div class="mb-3">
             <label class="form-label">Email</label>
             <input type="text" name="email" class="form-control" formControlName="email">
@@ -78,14 +86,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Phone</label>
-            <input type="text" name="phone" class="form-control" formControlName="phone">
-            <div class="text-danger"
-                *ngIf="userForm.controls['phone'].errors && (form.submitted || userForm.controls['phone'].touched)">
-                <span [hidden]="!userForm.controls['phone'].errors['minlength']"> Phone no should have min 12 digit</span>
-            </div>
-        </div>
+        
 
         <div class="mb-3">
             <input type="submit" value="Add User" *ngIf="id == undefined" class="btn btn-primary">

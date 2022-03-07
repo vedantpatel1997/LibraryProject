@@ -3,7 +3,7 @@ export class User {
     salutation: string | any;
     name: string | any;
     age: number | any;
-    dob: string | any;
+    dob: Date | any;
     gender: string | any;
     email: string | any;
     phone: number | any;

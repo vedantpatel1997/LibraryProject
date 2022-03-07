@@ -2,9 +2,9 @@
   <div class="container-fluid justify-content-start">
 
     <a class="navbar-brand">
-      <img src="https://seeklogo.com/images/C/cv-library-logo-82180EAC04-seeklogo.com.png" alt="" width="100" height="35" 
-        class="d-inline-block align-text-top filter-green">  </a>
-        <!-- <a class="navbar-brand h1 mb-0">Library Project</a>
+      <img src="https://seeklogo.com/images/C/cv-library-logo-82180EAC04-seeklogo.com.png" alt="" width="100"
+        height="35" class="d-inline-block align-text-top filter-green"> </a>
+    <!-- <a class="navbar-brand h1 mb-0">Library Project</a>
     https://seeklogo.com/images/C/cv-library-logo-82180EAC04-seeklogo.com.png -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -17,14 +17,17 @@
         <li class="nav-item ">
           <a class="nav-link" [routerLink]="['Users']">Users</a>
         </li>
-        <li class="nav-item ">
+        <!-- <li class="nav-item ">
           <a class="nav-link" [routerLink]="['Submit']">Submit Books Here</a>
-        </li>
+        </li> -->
       </ul>
     </div>
 
     <div class="d-flex">
-      <button class="btn btn-sm btn-outline-light" type="button" [routerLink]="['/AddOrEditUser']">Register New User</button>
+      <button class="btn btn-sm btn-primary" type="button" [routerLink]="['Submit']">Submit Books
+        Here</button>&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-sm btn-light" type="button" [routerLink]="['/AddOrEditUser']">Register New
+        User</button>
     </div>
   </div>
 </nav>
