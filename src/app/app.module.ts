@@ -22,6 +22,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BookDetailComponent } from './BookHandler/book-detail/book-detail.component';
 import { UserDetailComponent } from './UserHandler/user-detail/user-detail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { UserDetailComponent } from './UserHandler/user-detail/user-detail.compo
     MatSortModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxPaginationModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

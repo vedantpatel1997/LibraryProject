@@ -15,6 +15,8 @@ export class BooksComponent implements OnInit {
   constructor(private bookService: BookService, private router: Router) {
   }
   Books: Book[] | any;
+  p:number = 1;
+  orderHeader:string = "";
 
   /////////////////////////////////////////
   // Angular Data Table
@@ -53,6 +55,10 @@ export class BooksComponent implements OnInit {
 
   check() {
     console.log(`click on more details`)
+  }
+
+  sort(headerName:string){
+    this.orderHeader = headerName;
   }
 
 }

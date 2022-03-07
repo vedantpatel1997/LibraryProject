@@ -32,13 +32,15 @@ export class BookDetailComponent implements OnInit {
     let conform = confirm(`Are you sure to delete ${title} ?`)
 
     if (conform) {
-      console.log(`con`)
+      
       this.bookService.DeleteBook(id).subscribe(res => {
         if (res.status == 200) {
           alert(`Book is deleted.`)
           this.router.navigateByUrl('Books')
 
         }
+      },err=>{
+        alert(err.error)
       })
     }
   }

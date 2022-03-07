@@ -21,7 +21,7 @@ export class UserDetailComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute,private router:Router, private userService: UserService, private bookService: BookService, private issueService: IssueBookService) {
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private bookService: BookService, private issueService: IssueBookService) {
     this.route.params.subscribe(p => {
       this.id = p['id'];
     })
@@ -62,6 +62,8 @@ export class UserDetailComponent implements OnInit {
         alert(`User is deleted.`)
         this.router.navigateByUrl('Users')
       }
+    }, err => {
+      alert(err.error)
     })
   }
 }
