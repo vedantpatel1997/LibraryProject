@@ -75,7 +75,6 @@ export class IssueComponent implements OnInit {
         }
       }, err => {
         alert(err.error)
-        console.log(`Commit`)
       })
     }
   }

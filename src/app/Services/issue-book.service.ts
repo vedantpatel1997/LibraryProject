@@ -23,6 +23,10 @@ export class IssueBookService {
   GetBooksByUserId(id: number): Observable<any[]> {
     return this.httpClient.get<any[]>(environment.apiAddress + "Book/GetBookByUserId/" + id);
   }
+  
+  GetUsersByBookId(id: number): Observable<any[]> {
+    return this.httpClient.get<any[]>(environment.apiAddress + "Book/GetUsersByBookId/" + id);
+  }
 
   SubmitBook(submitBook: Submit): Observable<HttpResponse<any>> {
     return this.httpClient.post<HttpResponse<any>>(environment.apiAddress + "Book/SubmitBook", submitBook, { headers: this.headers, observe: 'response' })

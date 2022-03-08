@@ -25,6 +25,8 @@ import { UserDetailComponent } from './UserHandler/user-detail/user-detail.compo
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderModule } from 'ngx-order-pipe';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { OrderModule } from 'ngx-order-pipe';
     MatFormFieldModule,
     MatInputModule,
     NgxPaginationModule,
-    OrderModule
+    OrderModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,19 +2,75 @@
     <span>Book Details</span>
 </h2>
 <hr> -->
-<div class="top_SP pt-4">
-    <div class="card " style="width: 50rem;" *ngIf="book!=undefined">
-        <div class="card-body">
-            <h2>{{book.title}}</h2>
-            <h3 class="card-title">Author: {{book.author}}</h3>
-            <br>
-            <br>
-            <p class="text-danger" *ngIf="book.issuedQuantity==book.totalQuantity">Book is not available right now.</p>
-            
-            <button class="btn btn-primary" aria-disabled="true" [disabled]="book.issuedQuantity==book.totalQuantity" [routerLink]="['/Issue',book.bookId]">Issue</button>&nbsp;
-            <button class="btn btn-secondary" [routerLink]="['/AddOrEditBook',book.bookId]">Edit</button>&nbsp;
-            <button class="btn btn-danger" (click)="DeleteBook(book.bookId,book.title)">Delete</button>
+<div class="container">
+    <div class="row justify-content-between">
 
+        <div class="col-6">
+            <div class="top_SP pt-4">
+                <div class="card " style="width: 50rem;" *ngIf="book!=undefined">
+                    <div class="card-body">
+                        <h2>{{book.title}}</h2>
+                        <h3 class="card-title">Author: {{book.author}}</h3>
+                        <br>
+                        <br>
+                        <p class="text-danger" *ngIf="book.issuedQuantity==book.totalQuantity">Book is not available
+                            right now.</p>
+
+                        <button class="btn btn-primary" aria-disabled="true"
+                            [disabled]="book.issuedQuantity==book.totalQuantity"
+                            [routerLink]="['/Issue',book.bookId]">Issue</button>&nbsp;
+                        <button class="btn btn-secondary"
+                            [routerLink]="['/AddOrEditBook',book.bookId]">Edit</button>&nbsp;
+                        <button class="btn btn-danger" (click)="DeleteBook(book.bookId,book.title)">Delete</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3  pt-4" *ngIf="users!==undefined">
+            <div class="card">
+                <div class="card-body">
+                    <p *ngIf="users.length == 0">Currently no user have issued this book.</p>
+                    <div class="table-responsive" *ngIf="users.length > 0">
+                        <p><b>Book issued by Users:</b></p>
+
+
+                        <table mat-table [dataSource]="dataSource" matSort class="table align-middle">
+                            <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef > # </th>
+                                <td mat-cell *matCellDef="let element">
+                                    {{dataSource.filteredData.indexOf(element)+1}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef > Name </th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns; let element"
+                                [routerLink]="['/UserDetail',element.userId]"></tr>
+                        </table>
+                        <!-- <table class="table align-middle- caption-top">
+                            <caption>Book issued by Users</caption>
+                            <thead>
+                                <tr style="vertical-align: middle;">
+                                    <th>#</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let item of users let i=index" style="vertical-align: middle;">
+                                    <th>{{i+1}}</th>
+                                    <td>{{item.salutation}}. {{item.name}}</td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
-</div>

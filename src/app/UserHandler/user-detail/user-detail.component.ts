@@ -57,13 +57,16 @@ export class UserDetailComponent implements OnInit {
     })
   }
   DeleteUser(id: number) {
-    this.userService.DeleteUser(id).subscribe(res => {
-      if (res.status == 200) {
-        alert(`User is deleted.`)
-        this.router.navigateByUrl('Users')
-      }
-    }, err => {
-      alert(err.error)
-    })
+    let conform = confirm(`Are you sure to delete ${this.user.salutation}. ${this.user.name} ?`)
+    if (conform) {
+      this.userService.DeleteUser(id).subscribe(res => {
+        if (res.status == 200) {
+          alert(`User is deleted.`)
+          this.router.navigateByUrl('Users')
+        }
+      }, err => {
+        alert(err.error)
+      })
+    }
   }
 }
