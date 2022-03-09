@@ -24,7 +24,8 @@
     </div>
 
     <div class="d-flex">
-      <button class="btn btn-sm btn-primary" type="button" [routerLink]="['Submit']">Submit Books
+      <button class="btn btn-sm btn-primary" type="button"
+        [routerLink]="['IssueOrSubmit',{id:undefined,name:'Submit'}]">Submit Books
         Here</button>&nbsp;&nbsp;&nbsp;
       <button class="btn btn-sm btn-light" type="button" [routerLink]="['/AddOrEditUser']">Register New
         User</button>

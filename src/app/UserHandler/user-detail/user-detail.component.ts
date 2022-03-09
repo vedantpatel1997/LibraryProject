@@ -56,6 +56,7 @@ export class UserDetailComponent implements OnInit {
       console.log(err);
     })
   }
+  
   DeleteUser(id: number) {
     let conform = confirm(`Are you sure to delete ${this.user.salutation}. ${this.user.name} ?`)
     if (conform) {

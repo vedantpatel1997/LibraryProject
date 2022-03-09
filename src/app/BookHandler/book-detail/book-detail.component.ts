@@ -25,7 +25,7 @@ export class BookDetailComponent implements OnInit {
       this.id = p['id'];
     })
   }
-  displayedColumns: string[] = ['id','name'];
+  displayedColumns: string[] = ['id', 'name'];
   dataSource!: MatTableDataSource<any>;
   @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) matsort!: MatSort;
@@ -59,6 +59,10 @@ export class BookDetailComponent implements OnInit {
         alert(err.error)
       })
     }
+  }
+
+  AddClass() {
+    document.getElementById('addCard')?.classList.add('card')
   }
 
 }

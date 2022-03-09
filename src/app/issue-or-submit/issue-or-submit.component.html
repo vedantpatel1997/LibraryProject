@@ -1,16 +1,17 @@
-<div class="container">
-    <h2 class="pt-4 top_SP">
-        <span>Submit Book</span>
-        <!-- <button class="btn btn-primary" [routerLink]="['/Books']">Go To Books</button> -->
+<div class="card-body ">
+    <h2>
+        <span *ngIf="name == 'Issue'">Issue Book</span>
+        <span *ngIf="name == 'Submit'">Submit Book</span>
     </h2>
+
     <hr>
     <div class="col-sm-6 pt-4 pb-4">
-
         <form [formGroup]="userForm" (ngSubmit)="SaveData()" #form="ngForm">
             <div class="mb-3">
-                <label class="form-label">Select User</label>
-                <select class="form-control" required name="user" formControlName="user">
-                    <option  [ngValue]='null'>-- Select User --</option>
+                <label *ngIf="name == 'Issue'" class="form-label">Select User to Issue book</label>
+                <label *ngIf="name == 'Submit'" class="form-label">Select User to Submit book</label>
+                <select class="form-control" name="user" required formControlName="user">
+                    <option disabled [ngValue]='null'>-- Select User --</option>
                     <option *ngFor="let item of users" [value]="item.userId">
                         {{item.salutation}}. {{item.name}}
                     </option>
@@ -23,11 +24,12 @@
 
             <div class="mb-3">
                 <!-- <input type="submit" value="Add Course" *ngIf="id == undefined" class="btn btn-primary"> -->
-                <input type="submit" value="Get Details" class="btn btn-primary">
+                <input *ngIf="name == 'Issue'" type="submit" value="Issue Book" class="btn btn-primary">
+                <button *ngIf="name == 'Submit'"  class="btn btn-primary" (click)="GetDetails()">Get Details</button>
             </div>
         </form>
     </div>
-    <div class="col-sm-8 pt-4 pb-4" *ngIf="books!==undefined">
+    <div class="col-sm-8 pt-4 pb-4" *ngIf="name=='Submit' && books!==undefined">
         <h1 *ngIf="books.length == 0">There is no book to submit.</h1>
         <div class="table-responsive" *ngIf="books.length > 0">
             <table class="table align-middle">
@@ -49,7 +51,25 @@
                         </td>
                     </tr>
                 </tbody>
+
             </table>
         </div>
     </div>
+
 </div>
+
+<!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div> -->

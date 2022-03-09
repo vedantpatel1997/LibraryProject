@@ -10,9 +10,9 @@ import { AddOrEditBookComponent } from './BookHandler/add-or-edit-book/add-or-ed
 import { HomeComponent } from './home/home.component';
 
 import { AddOrEditUserComponent } from './UserHandler/add-or-edit-user/add-or-edit-user.component';
-import { IssueComponent } from './issue/issue.component';
+
 import { UsersComponent } from './UserHandler/users/users.component';
-import { SubmitComponent } from './submit/submit.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
@@ -26,6 +26,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderModule } from 'ngx-order-pipe';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { IssueOrSubmitComponent } from './issue-or-submit/issue-or-submit.component';
 
 
 @NgModule({
@@ -37,10 +38,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     UsersComponent,
     AddOrEditUserComponent,
-    IssueComponent,
-    SubmitComponent,
+   
     BookDetailComponent,
     UserDetailComponent,
+    IssueOrSubmitComponent,
   ],
 
   imports: [
