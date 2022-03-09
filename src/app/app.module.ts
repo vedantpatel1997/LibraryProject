@@ -8,11 +8,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { AddOrEditBookComponent } from './BookHandler/add-or-edit-book/add-or-edit-book.component';
 import { HomeComponent } from './home/home.component';
-
 import { AddOrEditUserComponent } from './UserHandler/add-or-edit-user/add-or-edit-user.component';
-
 import { UsersComponent } from './UserHandler/users/users.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';

@@ -70,19 +70,19 @@ export class IssueOrSubmitComponent implements OnInit {
       }
 
     }
-  }
 
-  GetDetails() {
     if (this.name == 'Submit') {
-      if (this.userForm.value.user > 0) {
-        this.issueService.GetBooksByUserId(Number(this.userForm.value.user)).subscribe(res => {
-          this.books = res;
-        })
-      };
+      if (this.userForm.valid) {
+        if (this.userForm.value.user > 0) {
+          this.issueService.GetBooksByUserId(Number(this.userForm.value.user)).subscribe(res => {
+            this.books = res;
+          })
+        };
+      }
     }
   }
 
-  SubmitBook(bookId: number){
+  SubmitBook(bookId: number) {
     if (this.name == 'Submit') {
       this.submitBook = new Submit();
       this.submitBook.userId = Number(this.userForm.value.user);
@@ -95,9 +95,9 @@ export class IssueOrSubmitComponent implements OnInit {
             this.books = res;
           })
         }
-      },err => {               
+      }, err => {
         console.log(err);
-    })
+      })
     }
   }
 

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'AddOrEditBook/:id', component: AddOrEditBookComponent },
   {
     path: 'BookDetail/:id', component: BookDetailComponent, children: [
-      { path: 'IssueOrSubmit', component: IssueOrSubmitComponent } 
+      { path: 'IssueOrSubmit', component: IssueOrSubmitComponent }
     ]
   },
   { path: 'AddOrEditBook', component: AddOrEditBookComponent },
@@ -25,10 +25,8 @@ const routes: Routes = [
   { path: 'AddOrEditUser/:id', component: AddOrEditUserComponent },
   { path: 'AddOrEditUser', component: AddOrEditUserComponent },
   { path: 'UserDetail/:id', component: UserDetailComponent },
- 
   { path: 'Register', component: RegisterUserComponent },
-
-  { path: 'IssueOrSubmit', component: IssueOrSubmitComponent },
+  { path: 'IssueOrSubmit', component: IssueOrSubmitComponent }
 ];
 
 @NgModule({
