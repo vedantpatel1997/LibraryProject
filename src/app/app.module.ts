@@ -35,7 +35,6 @@ import { IssueOrSubmitComponent } from './issue-or-submit/issue-or-submit.compon
     HomeComponent,
     UsersComponent,
     AddOrEditUserComponent,
-   
     BookDetailComponent,
     UserDetailComponent,
     IssueOrSubmitComponent,

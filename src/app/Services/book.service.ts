@@ -13,8 +13,6 @@ export class BookService {
 
   constructor(private httpClient: HttpClient) {
     this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
-    //res.status == 201
   }
 
   GetBooks(): Observable<Book[]> {
@@ -38,6 +36,5 @@ export class BookService {
   DeleteBook(id: number): Observable<HttpResponse<any>> {
     return this.httpClient.delete<HttpResponse<any>>(environment.apiAddress + "Book/DeleteBook/" + id,
       { observe: 'response' });
-  }
-  
+  } 
 }

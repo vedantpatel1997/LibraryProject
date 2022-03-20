@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiAddress: 'https://localhost:7295/api/'
+  // apiAddress: 'https://localhost:7295/api/'
+  apiAddress: 'https://vkplibraryapi.azurewebsites.net/api/'
 };
 
 /*

@@ -37,6 +37,8 @@
             <div class="text-danger"
                 *ngIf="userForm.controls['price'].errors && (form.submitted || userForm.controls['price'].touched)">
                 <span [hidden]="!userForm.controls['price'].errors['required']"> Enter Price</span>
+                <span [hidden]="!userForm.controls['price'].errors['min']">Price can not be less than zero </span>
+
             </div>
         </div>
 
@@ -46,6 +48,7 @@
             <div class="text-danger"
                 *ngIf="userForm.controls['totalQuantity'].errors && (form.submitted || userForm.controls['totalQuantity'].touched)">
                 <span [hidden]="!userForm.controls['totalQuantity'].errors['required']"> Enter Total Quantity </span>
+                <span [hidden]="!userForm.controls['totalQuantity'].errors['min']"> Total Quantity can not be less than zero </span>
 
             </div>
         </div>
@@ -56,6 +59,8 @@
             <div class="text-danger"
                 *ngIf="userForm.controls['availableQuantity'].errors && (form.submitted || userForm.controls['availableQuantity'].touched)">
                 <span [hidden]="!userForm.controls['availableQuantity'].errors['required']"> Enter Available Quantity </span>
+                <span [hidden]="!userForm.controls['availableQuantity'].errors['min']"> Available Quantity can not be less than zero </span>
+
 
             </div>
         </div>
@@ -66,6 +71,8 @@
             <div class="text-danger"
                 *ngIf="userForm.controls['issuedQuantity'].errors && (form.submitted || userForm.controls['issuedQuantity'].touched)">
                 <span [hidden]="!userForm.controls['issuedQuantity'].errors['required']"> Enter Issued Quantity </span>
+                <span [hidden]="!userForm.controls['issuedQuantity'].errors['min']"> Issued Quantity can not be less than zero </span>
+
             </div>
         </div>
 

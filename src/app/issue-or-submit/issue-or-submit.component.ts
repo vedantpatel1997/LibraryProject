@@ -21,7 +21,6 @@ export class IssueOrSubmitComponent implements OnInit {
   userForm: FormGroup
   users: User[] | any;
   books: Book[] | any;
-  // book: Book | any;
   issueBook: IssueBook | any;
   submitBook: Submit | any;
 

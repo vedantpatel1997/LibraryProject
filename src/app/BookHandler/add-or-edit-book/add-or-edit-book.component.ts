@@ -25,10 +25,10 @@ export class AddOrEditBookComponent implements OnInit {
     this.userForm = fb.group({
       title: [null, [Validators.required]],
       author: [null, [Validators.required]],
-      totalQuantity: [null, [Validators.required]],
-      availableQuantity: [null, [Validators.required]],
-      issuedQuantity: [null, [Validators.required]],
-      price: [null, [Validators.required]]
+      totalQuantity: [null, [Validators.required,Validators.min(0)]],
+      availableQuantity: [null, [Validators.required, Validators.min(0)]],
+      issuedQuantity: [null, [Validators.required,Validators.min(0)]],
+      price: [null, [Validators.required,Validators.min(0)]]
     })
   }
 
@@ -52,19 +52,12 @@ export class AddOrEditBookComponent implements OnInit {
 
   SaveData() {
     if (this.id !== undefined && this.id > 0) {
-      // this.course.name = this.userForm.value.name;
-      // this.course.summary = this.userForm.value.summary;
-      // this.course.description = this.userForm.value.description;
-      // this.course.imageUrl = this.userForm.value.imageUrl;
-      // this.course.demoUrl = this.userForm.value.demoUrl;
-      // this.course.unitPrice = this.userForm.value.unitPrice;
-      // this.course.difficultyType = this.userForm.value.difficultyType;
-      // this.course.categoryId = this.userForm.value.categoryId;
-      // this.course.mentorId = this.userForm.value.mentorId;
-
+      
       this.book = this.userForm.value;
+      
       this.book.bookId = this.id;
       this.bookService.UpdateBook(this.book).subscribe(res => {
+        console.log(res)
         if (res.status == 200) {
           alert(`Book is updated.`)
           this.router.navigateByUrl('Books')
